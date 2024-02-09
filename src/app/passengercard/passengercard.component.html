@@ -1,0 +1,28 @@
+<div class="card">
+    
+    
+    <div class="card-header d-flex">
+        <span class="symbol mr-2" [ngClass]="
+        {
+            'green' : paasengercard.checkedIn,
+            'red' : !paasengercard.checkedIn
+        }"></span>
+        
+<input type="text" class="form-control" [value]="paasengercard.fullname" [disabled]="iseditable" #updatedname>
+
+    </div>
+    <div class="card-body text-center text-capitalize">
+
+        <strong>CheckedIn:</strong>
+        <p>
+            {{paasengercard.checkInDate ? (paasengercard.checkInDate |date):"not checkedIn"}}
+        </p>
+
+        <strong>Children:</strong><P>{{paasengercard.children ? paasengercard.children.length:0}} </P>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+        <button class="btn btn-primary"(click)="onedit()" [ngClass]="{'d-none':iseditable}">edt</button>
+        <button class="btn btn-info" (click)="onupdate()" [ngClass]="{'d-none':!iseditable}">update</button>
+        <button class="btn btn-danger" (click)="ondelet()">delet</button>
+    </div>
+</div>
